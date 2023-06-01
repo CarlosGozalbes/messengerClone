@@ -1,0 +1,11 @@
+npx create-next-app@latest
+npm install -D prisma
+npx prisma init
+npm install @tailwindcss/forms
+npm i next-auth@latest @prisma/client @next-auth/prisma-adapter bcrypt
+npm i -D @types/bcrypt 
+npm i axios
+npx prisma db push
+npm i react-hook-form react-icons react-hot-toast
+npm i clsx
+
