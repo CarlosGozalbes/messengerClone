@@ -6,6 +6,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { email, name, password } = body;
+    console.log('register user', email,name,password)
     if (!email || !name || !password) {
       return {
         status: 400,
