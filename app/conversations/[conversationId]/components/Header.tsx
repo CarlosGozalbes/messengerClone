@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         </div>
         <HiEllipsisHorizontal
           size={32}
-         
+          onClick={()=>{}}
           className="
           text-sky-500
           cursor-pointer
