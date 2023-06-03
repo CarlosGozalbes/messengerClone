@@ -11,3 +11,4 @@ npm i clsx
 npx prisma generate
 npm i next-superjson-plugin
 npm i date-fns
+npm i next-cloudinary
