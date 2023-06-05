@@ -13,3 +13,4 @@ npm i next-superjson-plugin
 npm i date-fns
 npm i next-cloudinary
 npm i @headlessui/react
+npm i react-select
