@@ -8,10 +8,9 @@ import { format } from "date-fns";
 
 import useOtherUser from "@/app/hooks/useOtherUser";
 
-
 import Avatar from "@/app/components/Avatar";
 
-
+import ConfirmModal from "./ConfirmModal";
 
 interface ProfileDrawerProps {
   isOpen: boolean;
@@ -26,9 +25,8 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
   onClose,
   data,
 }) => {
- 
   const otherUser = useOtherUser(data);
-
+  const [confirmOpen, setConfirmOpen] = useState(false);
   const joinedDate = useMemo(() => {
     return format(new Date(otherUser.createdAt), "PP");
   }, [otherUser.createdAt]);
@@ -36,7 +34,6 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
   const title = useMemo(() => {
     return data.name || otherUser.name;
   }, [data.name, otherUser.name]);
-
 
   const statusText = useMemo(() => {
     if (data.isGroup) {
@@ -48,7 +45,8 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
 
   return (
     <>
-      
+      <ConfirmModal isOpen={confirmOpen} onClose={() => setConfirmOpen(false)}/>
+        
       <Transition.Root show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={onClose}>
           <Transition.Child
@@ -94,11 +92,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                       <div className="relative mt-6 flex-1 px-4 sm:px-6">
                         <div className="flex flex-col items-center">
                           <div className="mb-2">
-                            
-                              
-                            
-                              <Avatar user={otherUser} />
-                            
+                            <Avatar user={otherUser} />
                           </div>
                           <div>{title}</div>
                           <div className="text-sm text-gray-500">
@@ -106,7 +100,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                           </div>
                           <div className="flex gap-10 my-8">
                             <div
-                              onClick={() => {}}
+                              onClick={() => setConfirmOpen(true)}
                               className="flex flex-col gap-3 items-center cursor-pointer hover:opacity-75"
                             >
                               <div className="w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center">
