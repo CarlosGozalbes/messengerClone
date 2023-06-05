@@ -14,3 +14,4 @@ npm i date-fns
 npm i next-cloudinary
 npm i @headlessui/react
 npm i react-select
+npm i react-spinners
