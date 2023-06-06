@@ -15,3 +15,7 @@ npm i next-cloudinary
 npm i @headlessui/react
 npm i react-select
 npm i react-spinners
+npm i pusher pusher-js
+npm i lodash
+npm i -D @types/lodash
+npm i zustand
